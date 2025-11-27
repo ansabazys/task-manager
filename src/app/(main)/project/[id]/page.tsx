@@ -7,6 +7,7 @@ import TaskHeader, {
 import UpdateButton from "@/app/components/common/UpdateButton";
 import DeleteButton from "@/app/components/common/DeleteButton";
 import UpdateInput from "@/app/components/common/UpdateInput";
+import UpdateProfileTitle from "@/app/components/common/UpdateProjectTitle";
 
 async function getProject(id: string) {
   await DBConnect();
@@ -25,8 +26,7 @@ const ProjectDetails = async ({ params }: { params: { id: string } }) => {
 
   return (
     <div className="">
-      <h1 className="text-2xl font-semibold mb-4">{project.name}</h1>
-
+      <UpdateProfileTitle projectId={id} action="updateProjectTitle" data={project.name}   />
       <TaskHeader id={id} />
 
       <div className="rounded-lg border border-gray-200 overflow-hidden">

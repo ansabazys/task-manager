@@ -25,6 +25,10 @@ export async function PUT(
       project.tasks = project.tasks.filter((data: Task) => data._id != taskId);
       project.save();
     }
+    if (action === "updateProjectTitle") {
+      project.name = formData
+      project.save();
+    }
 
     if (action === "updateTitle") {
       const task: Task = project.tasks.find((data: Task) => data._id == taskId);
